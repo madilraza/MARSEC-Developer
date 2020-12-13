@@ -11,7 +11,26 @@
 	   
       <meta charset="UTF-8">
       <title>MARSEC DEVELOPER</title>
-      <!-- Google font -->
+	 
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/8.2.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.2.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.2.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/8.2.0/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/8.2.0/firebase-functions.js"></script>
+    <script defer src="/__/firebase/8.2.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/8.2.0/firebase-storage.js"></script>
+    <script defer src="/__/firebase/8.2.0/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/8.2.0/firebase-remote-config.js"></script>
+    <script defer src="/__/firebase/8.2.0/firebase-performance.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+ 
+	  <!-- Google font -->
 	  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
       <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
       <link rel="stylesheet" href="assets/css/bicon.min.css" />
@@ -22,7 +41,8 @@
       <!-- Magnific Popup -->
       <!--<link rel="stylesheet" href="assets/css/magnific-popup.css" />-->
       <!-- Animate Css -->
-      <link rel="stylesheet" href="assets/css/animate.css" />
+      <
+		  link rel="stylesheet" href="assets/css/animate.css" />
       <!-- Bootstrap Css -->
       <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
       <!-- Main Css -->
@@ -922,6 +942,45 @@ IT and Tech geeks , Students ,Youth , Medical Department , Govt of Pakistan dept
       <script type="text/javascript" src="assets/js/jquery.waypoints.min.js"></script>
       <script type="text/javascript" src="assets/js/jquery.counterup.js"></script>
       <script type="text/javascript" src="assets/js/wow.min.js"></script>
-      <script type="text/javascript" src="assets/js/active.js"></script> 
+	  <script type="text/javascript" src="assets/js/active.js"></script> 
+	  
+	  <script>
+		document.addEventListener('DOMContentLoaded', function() {
+		  const loadEl = document.querySelector('#load');
+		  // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+		  // // The Firebase SDK is initialized and available here!
+		  //
+		  // firebase.auth().onAuthStateChanged(user => { });
+		  // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+		  // firebase.firestore().doc('/foo/bar').get().then(() => { });
+		  // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+		  // firebase.messaging().requestPermission().then(() => { });
+		  // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+		  // firebase.analytics(); // call to activate
+		  // firebase.analytics().logEvent('tutorial_completed');
+		  // firebase.performance(); // call to activate
+		  //
+		  // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  
+		  try {
+			let app = firebase.app();
+			let features = [
+			  'auth', 
+			  'database', 
+			  'firestore',
+			  'functions',
+			  'messaging', 
+			  'storage', 
+			  'analytics', 
+			  'remoteConfig',
+			  'performance',
+			].filter(feature => typeof app[feature] === 'function');
+			loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+		  } catch (e) {
+			console.error(e);
+			loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+		  }
+		});
+	  </script>
    </body>
 </html>
